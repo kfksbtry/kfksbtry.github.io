@@ -5,6 +5,10 @@
         <title>Bio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
+            * {
+                box-sizing: border-box;
+            }
+
 			.headshot {
   				border-radius: 50%;
                 border: 4px solid rgb(39, 39, 39);
@@ -29,7 +33,7 @@
                 background-color: black;
                 gap: 10px;
             }
-
+            
             #assignment {
                 height: 160px;
                 width: 840px;
@@ -50,8 +54,6 @@
                 background-color: #b6c6c7;
                 border-radius: 8px;
                 border: 2px solid rgb(39, 39, 39);
-
-
             }
         </style>
     </head>
@@ -107,20 +109,6 @@
 ;">SUBMITTED</p></div>
         </div>
 
-        <div id="assignment">
-            <div class="assgn_course"><p>ELE112</p></div>
-            <div class="assgn_description"><p>Exp 1: Preliminary work & Lab report</p></div>
-            <div class="assgn_status"><p style="color: rgb(89, 238, 30); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20pt; -webkit-text-stroke: 1px #333;
-;">SUBMITTED</p></div>
-        </div>
-
-        <div id="assignment">
-            <div class="assgn_course"><p>ELE112</p></div>
-            <div class="assgn_description"><p>Exp 2: Preliminary work</p></div>
-            <div class="assgn_status"><p style="color: rgb(238, 30, 30); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20pt; -webkit-text-stroke: 1px #333;
-;">NOT SUBMITTED</p></div>
-        </div>
-
         <div id="horizontal-line"></div>
 
         <div class="assignment-title">
@@ -149,7 +137,7 @@
         </div>
 
         <div class="bottomtext">
-            <p>Last update: 18:04 15.03.2025</p>
+            <p>Last update: 20:10 15.03.2025</p>
         </div>
 
         <style>
@@ -170,8 +158,8 @@
                 align-items: center;
                 flex-direction: row;
                 gap: 10px;
-                min-width: 840px;
-                max-width: 840px;
+                min-width: 810px;
+                max-width: 810px;
                 max-height: 240px;
             }
         
@@ -222,6 +210,8 @@
                 height: 180px;
                 background-color: #a6b0b1;
                 border-radius: 8px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .biotext1 {
@@ -253,7 +243,7 @@
             .infosymboltext {
                 margin: auto;
                 text-align: center;
-                font-size: 34pt;
+                font-size: 30pt;
                 height: 40px;
                 width: 40px;
             }
@@ -284,8 +274,8 @@
             }
 
             .assgn_course, .assgn_description, .assgn_status {
-                min-width: 280px;
-                max-width: 280px;
+                min-width: 278px;
+                max-width: 278px;
 
                 flex-wrap: wrap;
                 flex-direction: column;
