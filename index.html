@@ -1,9 +1,288 @@
 <!DOCTYPE html>
-<title>Uni. Resources</title>
+
 <html>
+    <head>
+        <title>Bio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			.headshot {
+  				border-radius: 50%;
+                border: 4px solid rgb(39, 39, 39);
+                box-sizing: border-box;
+            }
+
+            body {
+                background: #8e9eab;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to bottom left, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to bottom left, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                background-size: cover;
+                background-attachment: fixed;
+                background-position: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            #horizontal-line {
+                margin: 0 auto;
+                width: 840px;
+                height: 2px;
+                background-color: black;
+                gap: 10px;
+            }
+
+            #assignment {
+                height: 160px;
+                width: 840px;
+                background-color: black;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                font-size: 16pt;
+
+                min-width: 280px;
+                max-width: 840px;
+
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                margin: 10px auto;
+
+                background-color: #b6c6c7;
+                border-radius: 8px;
+                border: 2px solid rgb(39, 39, 39);
+
+
+            }
+        </style>
+    </head>
+
     <body>
-        <div align="center">
-            <h2>Hello there!</h2>
+        <div class="top-frame">
+            <img src="headshot.jpeg" alt="Headshot" class="headshot">
+            <div class="text-container">
+                <h1 class="name">Baturay KAFKAS</h1>
+                <p class="description"> Hello there! I'm studying electrical & electronics engineering @ Hacettepe University since 2024. I've always shown interest in programming.</p>
+            </div>
         </div>
+
+        <div id="horizontal-line"></div>
+
+        <div class="bio">
+            <div class="biotext1">
+                <p>Born:</p>
+                <p>Pronouns:</p>
+                <p>Education:</p>
+            </div>
+
+            <div class="biotext2">
+                <p>05/06/2006</p>
+                <p>he, him</p>
+                <p>Özel Ankara Zafer Koleji Fen Lisesi (Private High School)</p>
+                <p>Hacettepe University, Electrical and Electronics Engineering, BSc. (current)</p>
+            </div>
+
+            <div class="infosymbol">
+                <h1 class="infosymboltext">i</h1>
+            </div>
+        </div>
+        
+        <div id="horizontal-line"></div>
+
+        <div class="assignment-title">
+            <p>Assignments</p>
+        </div>
+
+        <div class="assignment-chart">
+            <div class="assgn_course"><p>Course</p></div>
+            <div class="assgn_description"><p>Description</p></div>
+            <div class="assgn_status"><p>Status</p></div>
+        </div>
+
+        <!--Edit assignments section.-->
+
+        <div id="assignment">
+            <div class="assgn_course"><p>ELE124</p></div>
+            <div class="assgn_description"><p>The code for HW1: <a href="https://github.com/kfksbtry/uni/tree/main/1/2/ELE124" target="_blank">Visit here.</a></a></p></div>
+            <div class="assgn_status"><p style="color: red;">NOT SUBMITTED</p></div>
+        </div>
+
+        <div id="horizontal-line"></div>
+
+        <div class="assignment-title">
+            <p>Contact</p>
+        </div>
+      
+        <div class="contact-frame">
+            <img src="linkedin_logo.png" alt="LinkedIn" width="50px" height="50px">
+            <div class="text-container">
+                <p><a href="https://www.linkedin.com/in/8607530422eee/" target="_blank">https://www.linkedin.com/in/8607530422eee/</a></p>
+            </div>
+        </div>
+              
+        <div class="contact-frame">
+            <img src="gmail_icon.svg" alt="Gmail" width="50px" height="50px">
+            <div class="text-container">
+                <p>kfksbtry@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="contact-frame">
+            <img src="qrcode.png" alt="QR Code" width="100px" height="100px">
+            <div class="text-container">
+                <p>kfksbtry.github.io</p>
+            </div>
+        </div>
+
+        <div class="bottomtext">
+            <p>Last update: 06:16 15.03.2025</p>
+        </div>
+
+        <style>
+            .bottomtext {
+                margin: 0 auto;
+                width: 840px;
+                display:block;
+                background-color: none;
+                color: rgb(0, 0, 0);
+                text-align: right;
+            }
+
+            .top-frame {
+                margin: 0 auto;
+                padding: 15px;
+                display: flex;
+                justify-items: center;
+                align-items: center;
+                flex-direction: row;
+                gap: 10px;
+                max-width: 840px;
+                max-height: 240px;
+            }
+        
+            .contact-frame {
+                margin: 0 auto;
+                display: flex;
+                justify-items: center;
+                align-items: center;
+                flex-direction: row;
+                gap: 10px;
+                max-width: 840px;
+                max-height: 120px;
+                padding: 10px;
+
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                font-weight: normal;
+            }
+
+            .headshot {
+                margin-right: 5px;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                border: 3px solid rgb(39, 39, 39);
+            }
+        
+            .name {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 20px;
+                font-weight: bold;
+                color: #333;
+            }
+
+            .description {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                font-weight: normal;
+                color: #333;
+            }
+
+            .bio {
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 14pt;
+                display: flex;
+                margin: 10px auto;
+                width: 840px;
+                height: 180px;
+                background-color: #a6b0b1;
+                border-radius: 8px;
+            }
+
+            .biotext1 {
+                font-weight: bold;
+                display: inline;
+                margin-left: 16px;
+                margin-right: 16px;
+            }
+
+            .biotext2 {
+                display: inline;
+                margin-left: 16px;
+                margin-right: 16px;
+            }
+
+            .infosymbol {
+                text-align:justify;
+                justify-items: center;
+                align-items: start;
+                align-self: center;
+                border: 3px solid rgb(39, 39, 39);
+                border-radius: 50%;
+                border-color: black;
+                width: 50px;
+                height: 50px;
+                margin-left: 20px;
+            }
+
+            .infosymboltext {
+                margin: auto;
+                text-align: center;
+                font-size: 34pt;
+                height: 40px;
+                width: 40px;
+            }
+
+            .assignment-title {
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                color: #333;
+                margin: 0 auto;
+                text-align: center;
+                font-size: 20pt;
+                width: 840px;
+            }
+
+            .assignment-chart {
+                display: flex;
+                margin: 0 auto;
+                text-align: center;
+                width: 840px;
+                height: 36px;
+                background-color: #a6b0b1;
+                border-radius: 8px;
+
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14pt;
+                font-weight: bold;
+                color: #333;
+            }
+
+            .assgn_course, .assgn_description, .assgn_status {
+                min-width: 280px;
+                max-width: 280px;
+
+                flex-wrap: wrap;
+                flex-direction: column;
+                display: flex;
+
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                margin: 0 auto;
+
+                justify-content: center;
+                height: 30px;
+            }
+        </style>
     </body>
 </html>
