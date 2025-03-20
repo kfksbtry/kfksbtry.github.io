@@ -1,1 +1,2 @@
-# Nothing here.
+### Here is the QR code. You'll be redirected to the website after scanning.
+<img src="https://raw.githubusercontent.com/kfksbtry/kfksbtry.github.io/refs/heads/main/qrcode.png" width="200" height="200">
