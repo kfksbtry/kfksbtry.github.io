@@ -2,6 +2,35 @@
 
 <html>
     <head>
+        <script>
+            const birthday = new Date("06/05/2006")
+        
+            let ageDate = new Date(Date.now() - birthday.getTime());
+            let age = Math.abs(ageDate.getUTCFullYear() - 1970);
+    
+            async function fetchLastUpdate() {
+                const url = `https://api.github.com/repos/kfksbtry/kfksbtry.github.io/commits/main`; // Change "main" to your branch if different
+    
+                try {
+                    const response = await fetch(url);
+    
+                    const data = await response.json();
+                    const lastUpdate = new Date(data.commit.committer.date).toLocaleDateString() + " " + new Date(data.commit.committer.date).toLocaleTimeString();
+    
+                    document.getElementById("bottomtext").textContent = `Last updated: ${lastUpdate}`;
+                } catch (error) {
+                    console.error("Error fetching last update:", error);
+                    document.getElementById("bottomtext").textContent = "Last updated: Unknown";
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                document.getElementById("bd").textContent = `05/06/2006 (${age} years old)`;
+    
+                fetchLastUpdate()
+            });
+        </script>
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
         <title>Bio</title>
@@ -68,7 +97,6 @@
                 margin: 0 auto;
                 width: 840px;
                 display:block;
-                background-color: none;
                 color: rgb(0, 0, 0);
                 text-align: right;
             }
@@ -124,16 +152,17 @@
                 font-size: 18px;
                 font-weight: normal;
                 color: #333;
+                text-align: justify;
             }
 
-            .bio {
+            .frame_template {
                 font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                 font-size: 14pt;
                 display: flex;
                 margin: 10px auto;
                 width: 840px;
                 height: auto;
-                min-height: 180px;
+                min-height: 50px;
                 background-color: #a6b0b1;
                 border-radius: 8px;
                 margin-left: auto;
@@ -141,42 +170,18 @@
                 box-shadow: 0 0 4px;
             }
 
-            .biotext1 {
+            .frame_text1 {
                 font-weight: bold;
                 display: inline;
                 margin-left: 16px;
                 margin-right: 16px;
             }
 
-            .biotext2 {
+            .frame_text2 {
                 display: inline;
                 max-width: 600px;
                 margin-left: 8px;
                 margin-right: 8px;
-            }
-
-            .infosymbol {
-                display: flex;
-                text-align: justify;
-                justify-items: center;
-                justify-content: flex-end;
-                align-items: start;
-                align-self: center;
-                border: 3px solid rgb(39, 39, 39);
-                border-radius: 50%;
-                border-color: black;
-                width: 50px;
-                height: 50px;
-                margin-left: auto;
-                margin-right: 4%;
-            }
-
-            .infosymboltext {
-                margin: auto;
-                text-align: center;
-                font-size: 28pt;
-                height: 40px;
-                width: 40px;
             }
 
             .title {
@@ -184,6 +189,7 @@
                 font-weight: bold;
                 color: #333;
                 margin: 0 auto;
+                margin-top: 16px;
                 text-align: center;
                 font-size: 20pt;
                 width: 840px;
@@ -229,96 +235,155 @@
                 justify-content: center;
                 height: auto;
             }
+
+            .assgn_submitted {
+                color: rgb(89, 238, 30);
+                font-family: fantasy;
+                font-size: 20pt;
+                -webkit-text-stroke: 1px rgb(42, 117, 32);
+            }
+
+            .assgn_not_submitted {
+                color: rgb(211, 15, 15);
+                font-family: fantasy;
+                font-size: 20pt;
+                -webkit-text-stroke: 1px rgb(116, 28, 28);
+            }
+
+            .assgn_pending {
+                color: rgb(255, 240, 25);
+                font-family: fantasy;
+                font-size: 20pt;
+                -webkit-text-stroke: 1px rgb(116, 103, 28);
+            }
         </style>
     </head>
 
     <body>
-<div class="background">
-        <div class="top-frame">
-            <img src="headshot.jpeg" alt="Headshot" class="headshot">
-            <div class="text-container">
-                <h1 class="name">Baturay KAFKAS</h1>
-                <p class="description"> Hello there! I'm studying electrical & electronics engineering @ Hacettepe University since 2024. I've always shown interest in programming.</p>
-            </div>
-        </div>
-
-        <div id="horizontal-line"></div>
-
-        <div class="title">
-            <p>About</p>
-        </div>
-
-        <div class="bio">
-            <div class="biotext1">
-                <p>Born:</p>
-                <p>Pronouns:</p>
-                <p>Education:</p>
+        <div class="background">
+            <div class="top-frame">
+                <img src="headshot.jpeg" alt="Headshot" class="headshot">
+                <div class="text-container">
+                    <h1 class="name">Baturay KAFKAS</h1>
+                    <p class="description"> Hello there! I'm studying electrical & electronics engineering @ Hacettepe University since 2024. I've always shown interest in programming and developed a few games. I've taken part in math and coding contests as well.</p>
+                </div>
             </div>
 
-            <div class="biotext2">
-                <p>05/06/2006</p>
-                <p>he, him</p>
-                <p>Özel Ankara Zafer Koleji Fen Lisesi (Private High School)</p>
-                <p>Hacettepe University, Electrical and Electronics Engineering, BSc. (current)</p>
+            <div id="horizontal-line"></div>
+
+            <div class="title">
+                <p>About</p>
             </div>
 
-            <div class="infosymbol">
-                <h1 class="infosymboltext">i</h1>
+            <div class="frame_template">
+                <div class="frame_text1">
+                    <p>Born:</p>
+                    <p>Pronouns:</p>
+                    <p>Education:</p>
+                    <p><br/></p>
+                    <p>Languages:</p>
+                </div>
+
+                <div class="frame_text2">
+                    <p id="bd">05/06/2006</p>
+                    <p>he, him</p>
+                    <p>Özel Ankara Zafer Koleji Fen Lisesi (Private High School)</p>
+                    <p>Hacettepe University, Electrical and Electronics Engineering, BSc. (current)</p>
+                    <p>Turkish (primary), English, French (quite low)</p>
+                </div>
             </div>
-        </div>
+
+            <div id="horizontal-line"></div>
+
+            <!--
+            <div class="title">
+                <p>Endeavors</p>
+            </div>
+
+            <div class="frame_template">
+
+            </div>
+
+            <div id="horizontal-line"></div>
+
+            -->
+
+            <div class="title">
+                <p>Assignments</p>
+            </div>
+
+            <!--
+            <div class="frame_template" style="background-color: #788587;">
+
+            </div>
+            -->
+
+            <div class="assignment-chart">
+                <div class="assgn_course"><p>Course</p></div>
+                <div class="assgn_description"><p>Description</p></div>
+                <div class="assgn_status"><p>Status</p></div>
+            </div>
+
+            <!--Edit assignments section.-->
+
+            <div id="assignment">
+                <div class="assgn_course"><p>ELE124</p></div>
+                <div class="assgn_description"><p>The code for HW1: <a href="https://github.com/kfksbtry/uni/tree/main/1/2/ELE124/Hw1" target="_blank">Visit here.</a></p></div>
+                <div class="assgn_status">
+                    <div class="assgn_submitted">
+                        <p>SUBMITTED</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="assignment">
+                <div class="assgn_course"><p>ELE112</p></div>
+                <div class="assgn_description"><p><a href="https://github.com/kfksbtry/uni/blob/main/1/2/ELE112/exp1.tex" target="_blank">Preliminary work</a> & lab report of 1, 2</p></div>
+                <div class="assgn_status">
+                    <div class="assgn_submitted">
+                        <p>SUBMITTED</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="assignment">
+                <div class="assgn_course"><p>ELE122</p></div>
+                <div class="assgn_description"><p><a href="https://github.com/kfksbtry/uni/tree/main/1/2/ELE122/EXP1/PRE" target="_blank">Preliminary work 1</a></p></div>
+                <div class="assgn_status">
+                    <div class="assgn_submitted">
+                        <p>SUBMITTED</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="horizontal-line"></div>
+
+            <div class="title">
+                <p>Contact</p>
+            </div>
+
+            <div class="contact-frame">
+                <div class="iconholder">
+                    <i class="fa-brands fa-github"></i>
+                </div>
+                <p><a href="https://www.github.com/kfksbtry" target="_blank">GitHub</a></p>
+            </div>
         
-        <div id="horizontal-line"></div>
-
-        <div class="title">
-            <p>Assignments</p>
-        </div>
-
-        <div class="assignment-chart">
-            <div class="assgn_course"><p>Course</p></div>
-            <div class="assgn_description"><p>Description</p></div>
-            <div class="assgn_status"><p>Status</p></div>
-        </div>
-
-        <!--Edit assignments section.-->
-
-        <div id="assignment">
-            <div class="assgn_course"><p>ELE124</p></div>
-            <div class="assgn_description"><p>The code for HW1: <a href="https://github.com/kfksbtry/uni/tree/main/1/2/ELE124/Hw1" target="_blank">Visit here.</a></p></div>
-            <div class="assgn_status"><p style="color: rgb(89, 238, 30); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20pt; -webkit-text-stroke: 1px #333;
-;">SUBMITTED</p></div>
-        </div>
-
-        <div id="horizontal-line"></div>
-
-        <div class="title">
-            <p>Contact</p>
-        </div>
-
-        <div class="contact-frame">
-            <div class="iconholder">
-                <i class="fa-brands fa-github"></i>
+            <div class="contact-frame">
+                <div class="iconholder">
+                    <i class="fa-brands fa-linkedin"></i>
+                </div>
+                <p><a href="https://www.linkedin.com/in/8607530422eee/" target="_blank">LinkedIn</a></p>
             </div>
-            <p><a href="https://www.github.com/kfksbtry" target="_blank">GitHub</a></p>
-        </div>
-        
-        <div class="contact-frame">
-            <div class="iconholder">
-                <i class="fa-brands fa-linkedin"></i>
-            </div>
-            <p><a href="https://www.linkedin.com/in/8607530422eee/" target="_blank">LinkedIn</a></p>
-        </div>
               
-        <div class="contact-frame">
-            <div class="iconholder">
-                <i class="fa-solid fa-envelope"></i>
+            <div class="contact-frame">
+                <div class="iconholder">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <p>Personal email: <a href="mailto:kfksbtry@gmail.com">kfksbtry@gmail.com</a></p>
             </div>
-            <p>Personal email: <a href="mailto:kfksbtry@gmail.com">kfksbtry@gmail.com</a></p>
-        </div>
 
-        <div class="bottomtext">
-            <p>Last update: 22:43 20.03.2025</p>
+            <div class="bottomtext" id="bottomtext"></div>
         </div>
-    </div>
-</div>
     </body>
 </html>
