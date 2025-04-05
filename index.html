@@ -4,38 +4,46 @@
     <head>
         <script>
             const birthday = new Date("06/05/2006")
-        
+
             let ageDate = new Date(Date.now() - birthday.getTime());
             let age = Math.abs(ageDate.getUTCFullYear() - 1970);
-    
+
             async function fetchLastUpdate() {
-                const url = `https://api.github.com/repos/kfksbtry/kfksbtry.github.io/commits/main`; // Change "main" to your branch if different
-    
+                const url = `https://api.github.com/repos/kfksbtry/kfksbtry.github.io/commits/main`;
+                const bottomText = document.getElementById("bottomtext")
+
                 try {
+
                     const response = await fetch(url);
-    
                     const data = await response.json();
-                    const lastUpdate = new Date(data.commit.committer.date).toLocaleDateString() + " " + new Date(data.commit.committer.date).toLocaleTimeString();
-    
-                    document.getElementById("bottomtext").textContent = `Last updated: ${lastUpdate}`;
+                    const lDate = new Date(data.commit.committer.date)
+
+                    const hours = String(lDate.getHours()).padStart(2, '0');
+                    const minutes = String(lDate.getMinutes()).padStart(2, '0');
+                    const seconds = String(lDate.getSeconds()).padStart(2, '0');
+
+                    const _24 = `${hours}:${minutes}:${seconds}`;
+                    const lastUpdate = lDate.toLocaleDateString() + " " + _24 + " +3";
+
+                    bottomText.textContent = `Last updated: ${lastUpdate}`;
                 } catch (error) {
                     console.error("Error fetching last update:", error);
-                    document.getElementById("bottomtext").textContent = "Last updated: Unknown";
+                    bottomText.textContent = "Last updated: Unknown";
                 }
             }
-
+            
             document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("bd").textContent = `05/06/2006 (${age} years old)`;
-    
+                document.getElementById("bottomtext").textContent = `Last updated: Fetching...`;
+
                 fetchLastUpdate()
             });
         </script>
-
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
         <title>Bio</title>
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<style>
             * {
                 box-sizing: border-box;
@@ -156,7 +164,6 @@
             }
 
             .frame_template {
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                 font-size: 14pt;
                 display: flex;
                 margin: 10px auto;
