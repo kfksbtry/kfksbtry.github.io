@@ -74,6 +74,12 @@
                 gap: 10px;
             }
             
+            #vertical-line {
+                height: auto;
+                width: 2px;
+                background-color: black;
+            }
+            
             #assignment {
                 height: auto;
                 width: 840px;
@@ -174,6 +180,47 @@
                 margin-left: auto;
                 margin-right: auto;
                 box-shadow: 0 0 4px;
+            }
+
+            .frame_template2 {
+                font-size: 14pt;
+                display: flex;
+                flex-direction: row;
+                margin: 10px auto;
+                width: 840px;
+                height: auto;
+                min-height: 50px;
+                border-radius: 8px;
+                margin-left: auto;
+                margin-right: auto;
+                align-content: center;
+                justify-content: center;
+            }
+
+            .middle_text_container {
+                font-size: 14pt;
+                display: flex;
+                margin: 0px auto;
+                width: 840px;
+                height: auto;
+                border-radius: 8px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                text-align: justify;
+            }
+
+            .frame3 {
+                padding: 10px;
+                display: flex;
+                justify-items: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+                width: 260px;
+                height: auto;
+                margin: 10px;
+                text-align: center;
             }
 
             .frame_text1 {
@@ -284,14 +331,12 @@
             <div class="frame_template">
                 <div class="frame_text1">
                     <p>Born:</p>
-                    <p>Pronouns:</p>
                     <p>Languages:</p>
                     <p>Education:</p>
                 </div>
 
                 <div class="frame_text2">
                     <p id="bd">05/06/2006</p>
-                    <p>he, him</p>
                     <p>Turkish (primary), English, French (low)</p>
                     <p>Özel Ankara Zafer Koleji Fen Lisesi (Private High School)</p>
                     <p>Hacettepe University, Electrical and Electronics Engineering, Bachelor's degree. (ongoing)</p>
@@ -300,18 +345,26 @@
 
             <div id="horizontal-line"></div>
 
-            <!--
             <div class="title">
-                <p>Endeavors</p>
+                <p>Math Courses</p>
             </div>
 
-            <div class="frame_template">
+            <div class="middle_text_container">As a volunteer and soon-to-be academic peer, I went through many exams that I collected samples of and solved every question in detail for students taking calculus courses. Supervised by <a href="https://bulentsarac.com/index.php" target="_blank"> Professor Bülent SARAÇ</a>.</div>
 
+            <div class="frame_template2">
+                <div class="frame3">
+                    <a href="assets/MAT123_exam_solutions.pdf" target="_blank" alt="View"><b>MAT123 (Mathematics I) Exam Solutions</b></a>
+                    <a href="assets/MAT123_exam_solutions.pdf" target="_blank" alt="View"><img src="assets/cover1.png" alt="MAT123" style="max-width:100%; height:100%; border-radius:12px; border: #333 3px solid;"></a>
+                </div>
+                <div class="frame3">
+                    <a href="assets/MAT123_exam_solutions.pdf" target="_blank" alt="View"><b>MAT124 (Mathematics II) Exam Solutions</b></a>
+                    <a href="assets/MAT124_exam_solutions.pdf" target="_blank" alt="View"><img src="assets/cover2.png" alt="MAT123" style="max-width:100%; height:100%; border-radius:12px; border: #333 3px solid;"></a>
+                </div>
             </div>
+
+            <div class="middle_text_container"><p>You may also view the solution and source code of each exam by clicking here: <a href="https://github.com/kfksbtry/uni/tree/main/1/1/MAT123/solutions" target="_blank" alt="View"><b>MAT123 (Mathematics I)</b></a> and <a href="https://github.com/kfksbtry/uni/tree/main/1/2/MAT124/solutions" target="_blank" alt="View"><b>MAT124 (Mathematics II)</b></a>.</p></div>
 
             <div id="horizontal-line"></div>
-
-            -->
 
             <div class="title">
                 <p>Assignments</p>
