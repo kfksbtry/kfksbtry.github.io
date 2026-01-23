@@ -10,19 +10,24 @@
 
             async function fetchLastUpdate() {
                 const url = `https://api.github.com/repos/kfksbtry/kfksbtry.github.io/commits/main`;
-                const bottomText = document.getElementById("bottomtext")
-
+                const bottomText = document.getElementById("bottomtext");
+                
                 try {
                     const response = await fetch(url);
                     const data = await response.json();
-                    const lDate = new Date(data.commit.committer.date)
 
-                    const hours = String(lDate.getHours()).padStart(2, '0');
-                    const minutes = String(lDate.getMinutes()).padStart(2, '0');
-                    const seconds = String(lDate.getSeconds()).padStart(2, '0');
+                    const utcDate = new Date(data.commit.committer.date);
+                    const utcPlus3 = new Date(utcDate.getTime() + 3 * 60 * 60 * 1000);
 
-                    const _24 = `${hours}:${minutes}:${seconds}`;
-                    const lastUpdate = lDate.toLocaleDateString() + " " + _24 + " +3";
+                    const day = String(utcPlus3.getDate()).padStart(2, '0');
+                    const month = String(utcPlus3.getMonth() + 1).padStart(2, '0');
+                    const year = utcPlus3.getFullYear();
+
+                    const hours = String(utcPlus3.getHours()).padStart(2, '0');
+                    const minutes = String(utcPlus3.getMinutes()).padStart(2, '0');
+                    const seconds = String(utcPlus3.getSeconds()).padStart(2, '0');
+
+                    const lastUpdate = `${day}/${month}/${year} ${hours}:${minutes}:${seconds} UTC+3`;
 
                     bottomText.textContent = `Last updated: ${lastUpdate}`;
                 } catch (error) {
@@ -313,10 +318,10 @@
     <body>
         <div class="background">
             <div class="top-frame">
-                <img src="headshot.jpeg" alt="Headshot" class="headshot">
+                <img src="assets/headshot.jpeg" alt="Headshot" class="headshot">
                 <div class="text-container">
-                    <h1 class="name">Baturay KAFKAS</h1>
-                    <p class="description"> Hello there! I'm studying electrical & electronics engineering @ Hacettepe University since 2024. I've always shown interest in programming and developed a few games. I've taken part in math and coding contests as well. Currently working part-time as an academic tutor for engineering students.<br><br>This site was primarily maintained to demonstrate the assignments given for the ELE124 course a while ago, but you can now inspect my own work in other courses as well.</p>
+                    <h1 class="name">Baturay Kafkas</h1>
+                    <p class="description">Former academic peer for engineering students taking calculus courses.<br><br>I've always shown interest in math and programming, and therefore, I've taken part in math and coding contests.<br><br>This site was primarily maintained to demonstrate the assignments given for the ELE124 course. You can now review my work in other courses <a href="https://github.com/kfksbtry/uni" target="_blank" alt="View"><b>here</b></a> as well.</p>
                 </div>
             </div>
 
@@ -335,8 +340,8 @@
 
                 <div class="frame_text2">
                     <p id="bd">05/06/2006</p>
-                    <p>Turkish (primary), English, French (low)</p>
-                    <p>Özel Ankara Zafer Koleji Fen Lisesi (Private High School)</p>
+                    <p>Turkish (native), English, French</p>
+                    <p>Zafer Koleji Fen Lisesi (Private High School)</p>
                     <p>Hacettepe University, Electrical and Electronics Engineering, Bachelor's degree. (ongoing)</p>
                 </div>
 
@@ -356,7 +361,7 @@
                 <p>Math Courses</p>
             </div>
 
-            <div class="middle_text_container">As an academic peer helping engineering students, I went through many calculus exams that I collected samples of and solved every question in detail.</div>
+            <div class="middle_text_container">I went through many calculus exams that I collected samples of and solved every question in detail. You can download the books, obsolete yet still beneficial, below. It is recommended to review each exam paper individually in the repository.</div>
 
             <div class="frame_template2">
                 <div class="frame3">
@@ -369,27 +374,28 @@
                 </div>
             </div>
 
-            <div class="middle_text_container"><p>You may also view the solution and source code of each exam by clicking here: <a href="https://github.com/kfksbtry/uni/tree/main/1/1/MAT123/solutions" target="_blank" alt="View"><b>MAT123 (Mathematics I)</b></a> and <a href="https://github.com/kfksbtry/uni/tree/main/1/2/MAT124/solutions" target="_blank" alt="View"><b>MAT124 (Mathematics II)</b></a>.</p></div>
+            <div class="middle_text_container"><p>You may also view the solution and source code of each exam by clicking here: <a href="https://github.com/kfksbtry/uni/tree/main/1/Fall/MAT123/solutions" target="_blank" alt="View"><b>MAT123 (Mathematics I)</b></a> and <a href="https://github.com/kfksbtry/uni/tree/main/1/Spring/MAT124/solutions" target="_blank" alt="View"><b>MAT124 (Mathematics II)</b></a>.</p></div>
 
             <div id="horizontal-line"></div>
 
+            <!--
             <div class="title">
                 <p>Assignments</p>
             </div>
 
-            <!--
             <div class="frame_template" style="background-color: #788587;">
 
             </div>
             -->
-
+            
+            <!--
             <div class="assignment-chart">
                 <div class="assgn_course"><p>Course</p></div>
                 <div class="assgn_description"><p>Description</p></div>
                 <div class="assgn_status"><p>Status</p></div>
             </div>
 
-            <!--Edit assignments section.-->
+            <*!--Edit assignments section.--*>
             <div id="assignment">
                 <div class="assgn_course"><p>ELE124</p></div>
                 <div class="assgn_description"><p>Homework: <a href="https://github.com/kfksbtry/uni/tree/main/1/2/ELE124" target="_blank">Visit here.</a></p></div>
@@ -421,6 +427,7 @@
             </div>
 
             <div id="horizontal-line"></div>
+            -->
 
             <div class="title">
                 <p>Contact</p>
